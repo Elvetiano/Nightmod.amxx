@@ -36,12 +36,11 @@ new bool:delaymaptrue = false;
 public plugin_init()
 {
 	register_plugin(PLUGIN, VERSION, AUTHOR)
-	
+	create_cvar("nightmod_version", VERSION, FCVAR_SERVER|FCVAR_EXTDLL|FCVAR_UNLOGGED|FCVAR_SPONLY, "Plugin version^nDo not edit this cvar")
+
 	#if AMXX_VERSION_NUM < 183
 		set_fail_state("Plugins failed AmxModx version is < 1.8.3")
 	#endif
-	
-	create_cvar("nightmod_version", VERSION, FCVAR_SERVER|FCVAR_EXTDLL|FCVAR_UNLOGGED|FCVAR_SPONLY, "Plugin version^nDo not edit this cvar")
 
 	register_concmd("amx_unlag_plugins", "pause_lagplugins", ACCESSFLAG,"Put plugins in pause or unpause" );
 	register_srvcmd("amx_unlag_plugins", "pause_lagplugins", -1, "Put plugins in pause or unpause");
@@ -74,15 +73,14 @@ public plugin_init()
 	{
 		set_task(10.0, "setsetting_Night")
 		setsetting_pauseplugins();
-	}
-	
-	
-	
-	if (( str_to_num(hours) >= get_cvar_num("amx_night_end")) && ( str_to_num(hours) < get_cvar_num("amx_night_start")))
+	}else
 	{
-		set_task(10.0, "setsetting_Day")
-		setsetting_unpause();
-	}	
+		if (( str_to_num(hours) >= get_cvar_num("amx_night_end")) && ( str_to_num(hours) < get_cvar_num("amx_night_start")))
+		{
+			set_task(10.0, "setsetting_Day")
+			setsetting_unpause();
+		}	
+	}
 	
 	g_roundCountCT = 0
 	g_roundCountT  = 0
