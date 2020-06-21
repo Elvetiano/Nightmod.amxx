@@ -268,7 +268,6 @@ public setsetting_Night()
 	server_cmd("amx_cvar mp_timelimit 0")	
 	server_cmd("exec serverhostnamefreevip.cfg")	
 	server_cmd("amx_cvar afk_kick_players 31")
-	set_task(10.0, "setsetting_Day")
 }
 
 public setsetting_Day()
