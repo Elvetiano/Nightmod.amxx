@@ -284,8 +284,6 @@ public setsetting_Day()
 }
 
 
-
-
 new const g_plugins_pause[][] = {
 	"sillyc4",
 	"afk_manager",
