@@ -20,7 +20,7 @@
 		* Added Autoexecconfig to execute own config for this plugin you can find config in (cstrike/addons/amxmodx/configs/plugins/plugin-Nightmod.cfg)
 	- Version 2.0.1 26-06-2020
 		* Removed some plugins from pause
-		* Timeout 999 during night 
+		* Timeout 999 during night
 	**TO DO
 		* add comp to lower amxmodx verions
 */
