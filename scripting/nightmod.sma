@@ -261,7 +261,7 @@ public Changemap(const Taskmap[])
 public setsetting_Night()
 {
 	server_cmd("amx_cvar amx_vipgold_everyone 1")
-	server_cmd("amx_cvar sv_timeout 300")	
+	server_cmd("amx_cvar sv_timeout 999")	
 	server_cmd("amx_cvar sv_unlag 1")	
 	server_cmd("amx_cvar sv_maxunlag 1.5")	
 	server_cmd("amx_cvar mp_autokick 0")	
