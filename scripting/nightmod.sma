@@ -6,25 +6,26 @@
 
 /*
 *******Change list
- - Version 1.0
-	* This plugin is a work of S3ekEr 
-	*http://www.extreamcs.com/forum/cereri-pluginuri/cerere-plugin-program-noapte-t140653.html
- - Version 1.1 
- * Last round when number of rounds meets the amx_restart_maxrounds and reload map
+	- Version 1.0
+		* This plugin is a work of S3ekEr 
+		*http://www.extreamcs.com/forum/cereri-pluginuri/cerere-plugin-program-noapte-t140653.html
+	- Version 1.1 
+		* Last round when number of rounds meets the amx_restart_maxrounds and reload map
  
- - Version 2.0 20-06-2020
- * Added galileo to pause list
- * Added auto pausing plugins in pause list when switching to nightmode 
+	- Version 2.0 20-06-2020
+		* Added galileo to pause list
+		* Added auto pausing plugins in pause list when switching to nightmode 
  
- - Version 2.0 20-06-2020
- * Added Autoexecconfig to execute own config for this plugin you can find config in (cstrike/addons/amxmodx/configs/plugins/plugin-Nightmod.cfg)
- 
- **TO DO
- * add comp to lower amxmodx verions
+	- Version 2.0 20-06-2020
+		* Added Autoexecconfig to execute own config for this plugin you can find config in (cstrike/addons/amxmodx/configs/plugins/plugin-Nightmod.cfg)
+	- Version 2.0.1 26-06-2020
+		* Removed some plugins from pause
+	**TO DO
+		* add comp to lower amxmodx verions
 */
 
 #define PLUGIN	"Nightmod"
-#define VERSION	"2.0"
+#define VERSION	"2.0.1"
 #define AUTHOR	"S3ekEr & UNU"
 
 
@@ -294,7 +295,7 @@ new const g_plugins_pause[][] = {
 	"stuck",
 	"TopFlags",
 	"chooseteam",
-	"auto_join_on_connect",
+//	"auto_join_on_connect",
 	"amx_log_advanced",
 	"chat_logger",
 	"AutoRRound",
@@ -302,16 +303,16 @@ new const g_plugins_pause[][] = {
 	"amx_slayafk",
 	"last_maps",
 	"discord",
-	"ultimate_chat",
+//	"ultimate_chat",
 	"silent_nades",	
-	"reaimdetector",
+//	"reaimdetector",
 	"amxbans_assist",
-	"amxbans_flagged",
-	"amxbans_freeze",
-	"advanced_gag",
+//	"amxbans_flagged",
+//	"amxbans_freeze",
+//	"advanced_gag",
 	"adminhelp",
 	"adminslots",
-	"multilingual",
+//	"multilingual",
 	"antiflood",
 	"scrollmsg",
 	"imessage",
