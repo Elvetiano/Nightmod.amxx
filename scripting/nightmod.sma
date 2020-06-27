@@ -5,7 +5,8 @@
 #define ACCESSFLAG ADMIN_LEVEL_C
 
 /*
-*******Change list
+******* - Change list - **************************
+
 	- Version 1.0
 		* This plugin is a work of S3ekEr 
 		*http://www.extreamcs.com/forum/cereri-pluginuri/cerere-plugin-program-noapte-t140653.html
@@ -21,8 +22,11 @@
 	- Version 2.0.1 26-06-2020
 		* Removed some plugins from pause
 		* Timeout 999 during night
-	**TO DO
+		
+		
+	** TO DO **
 		* add comp to lower amxmodx verions
+*********************************************
 */
 
 #define PLUGIN	"Nightmod"
@@ -367,7 +371,8 @@ public setsetting_unpause()
 				// "paused"
 				case 'p':
 				{
-					server_cmd("amx_pausecfg enable %s",g_plugins_pause[i])
+					unpause("ac", pluginname)
+					//server_cmd("amx_pausecfg enable %s",g_plugins_pause[i])
 				}				
 			}
 		}
