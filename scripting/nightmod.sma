@@ -300,6 +300,7 @@ new const g_plugins_pause[][] = {
 	"stuck",
 	"TopFlags",
 	"chooseteam",
+	"NewPingKicker",
 //	"auto_join_on_connect",
 	"amx_log_advanced",
 	"chat_logger",
