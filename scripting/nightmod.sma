@@ -292,7 +292,7 @@ public setsetting_Day()
 
 new const g_plugins_pause[][] = {
 	"sillyc4",
-	"afk_manager",
+//	"afk_manager",
 	"amx_execv4",
 	"nade_semiclip",	
 	"Sedly_ExploitFix",
