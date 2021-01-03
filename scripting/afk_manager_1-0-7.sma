@@ -530,8 +530,8 @@ public afk_manager_loop(ent)
 							}
 						}
 					}
-					//if ( SlayTime > 0.0 && afk_time >= SlayTime && ( !SlayImmunity || !has_all_flags(player, SlayImmunityFlag) ) && !(SwitchToSpecTime > 0.0))
-					if ( SlayTime > 0.0 && afk_time >= SlayTime && ( !SlayImmunity || !has_all_flags(player, SlayImmunityFlag) ))
+					if ( SlayTime > 0.0 && afk_time >= SlayTime && ( !SlayImmunity || !has_all_flags(player, SlayImmunityFlag) ) && !(SwitchToSpecTime > 0.0))
+					//if ( SlayTime > 0.0 && afk_time >= SlayTime && ( !SlayImmunity || !has_all_flags(player, SlayImmunityFlag) ))
 					{
 							AfkTime[player] = 0.0
 
@@ -620,7 +620,7 @@ public afk_manager_loop(ent)
 				}
 			}
 		}
-		if(SlayInform > 0)
+		if(SlayInform > 0 && SlayTime > 0.0 && !(SwitchToSpecTime > 0.0))
 		{
 			if (afk_time > SlayInformTime && is_player_alive && g_invisible[player] == 0)
 			{

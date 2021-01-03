@@ -1,7 +1,6 @@
 #include <amxmodx>
 #include <amxmisc>
 #include <official_base>
-
 #define ACCESSFLAG ADMIN_LEVEL_C
 
 /*
@@ -306,7 +305,7 @@ new const g_plugins_pause[][] = {
 	"chat_logger",
 	"AutoRRound",
 	"amx_chat_slap_slay",	
-	"amx_slayafk",
+//	"amx_slayafk",
 	"last_maps",
 	"discord",
 //	"ultimate_chat",
