@@ -145,6 +145,7 @@ new BombManagementImmunityFlag[27], SwitchToSpecImmunityFlag[27], KickImmunityFl
 
 new	pcvar_debug;
 new g_invisible[MAX_PLAYERS+1];
+new static EntID;
 
 public plugin_init()
 {
@@ -244,6 +245,56 @@ public handle_afkadmin(id, param)
 	g_invisible[id] = param;
 }
 
+
+
+public plugin_pause()
+{
+	new playerCount, players[32]
+	new player
+	get_players(players, playerCount)
+	for (new i=0; i < playerCount; i++)
+	{
+		player = players[i]
+		g_invisible[player] = 0;
+		AfkTime[player] = 0.0;
+			
+	}
+	if(EntID)
+	{
+		remove_entity(EntID);
+	}
+	if (task_exists(45789)){
+		remove_task(45789);	
+	}
+	RoundFreeze = true;
+}
+
+public plugin_unpause()
+{
+	new playerCount, players[32]
+	new player
+	get_players(players, playerCount)
+	for (new i=0; i < playerCount; i++)
+	{
+		player = players[i]
+		UserID[player] = get_user_userid(player)
+		AfkTime[player] = 0.0			
+	}
+	new ent = create_entity("info_target")
+	if ( ent )
+	{
+		entity_set_string(ent, EV_SZ_classname, "afk_manager_ent")
+		register_think("afk_manager_ent", "afk_manager_loop")
+		entity_set_float(ent, EV_FL_nextthink, get_gametime() + LoopFrequency)
+		EntID = ent;
+	}
+	else
+	{
+		set_task(LoopFrequency, "afk_manager_loop",45789, .flags = "b")
+	}
+	RoundFreeze = false;
+}
+
 public OnConfigsExecuted()
 {
 	new pcvar_amx_reservation = get_cvar_pointer("amx_reservation")
@@ -258,10 +309,11 @@ public OnConfigsExecuted()
 		entity_set_string(ent, EV_SZ_classname, "afk_manager_ent")
 		register_think("afk_manager_ent", "afk_manager_loop")
 		entity_set_float(ent, EV_FL_nextthink, get_gametime() + LoopFrequency)
+		EntID = ent;
 	}
 	else
 	{
-		set_task(LoopFrequency, "afk_manager_loop", .flags = "b")
+		set_task(LoopFrequency, "afk_manager_loop",45789, .flags = "b")
 	}
 }
 
@@ -269,6 +321,12 @@ public client_connect(id)
 {
 	UserID[id] = get_user_userid(id)
 	AfkTime[id] = 0.0
+}
+
+public client_disconnected(id)
+{
+	g_invisible[id] = 0;
+	AfkTime[id] = 0.0;
 }
 
 public team_or_class_selected(id)
