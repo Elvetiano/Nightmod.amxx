@@ -153,7 +153,7 @@ public plugin_init()
 
 	register_dictionary("afk_manager.txt")
 
-	new pcvar = create_cvar("amxbans_debug", "0", FCVAR_NONE, "(0|1) - Disable/Enable debug log info", .has_min = true, .min_val = 0.0, .has_max = true, .max_val = 1.0)
+	new pcvar = create_cvar("afk_debug", "0", FCVAR_NONE, "(0|1) - Disable/Enable debug log info", .has_min = true, .min_val = 0.0, .has_max = true, .max_val = 1.0)
 	bind_pcvar_num(pcvar, pcvar_debug)
 
 	pcvar = create_cvar("afk_global_messages_away_time", "10", FCVAR_NONE, "Time in seconds that a client can be AFK before being able to trigger AFK global messages^nAFK gobal messages are displayed to a team when all the enemies of the opposing team are AFK^nSet this cvar to 0 to disable the display of AFK global messages", .has_min = true, .min_val = 0.0)
